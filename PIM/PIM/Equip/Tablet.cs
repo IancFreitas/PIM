@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using PIM.Funcionarios;
+using PIM.Equipamentos;
 
-namespace PIM.Administradores
+namespace PIM.Tablets
 {
-    class Administrador : Funcionario
+    class Tablet : Equipamento
     {
     }
 }

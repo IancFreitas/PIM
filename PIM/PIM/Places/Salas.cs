@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using PIM.Funcionarios;
+using PIM.Locais;
 
-namespace PIM.Administradores
+namespace PIM.SalasdeAula
 {
-    class Administrador : Funcionario
+    class Salas : Local
     {
     }
 }

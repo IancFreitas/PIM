@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using PIM.Notebooks;
+using PIM.Tablets;
+using PIM.Projetores;
 
 namespace PIM.Equipamentos
 {
@@ -13,6 +15,5 @@ namespace PIM.Equipamentos
         public int CodigoSerie { get; set; }
         public bool Alugado { get; set; }
     }
-
-    public class EstoquedeEquipamentos
 }
+
