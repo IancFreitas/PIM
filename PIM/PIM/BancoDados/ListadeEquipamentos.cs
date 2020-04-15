@@ -9,9 +9,9 @@ using PIM.Tablets;
 
 namespace PIM.ListadeEquipamentos
 {
-    public static class BasedeDadosEquips
+    public class BasedeDadosEquips
     {
-        public static List<Equipamento> EstoqueDeEquipamentos = new List<Equipamento>()
+        public List<Equipamento> EstoqueDeEquipamentos = new List<Equipamento>()
         {
             new Notebooks.Notebook { Alugado = false, CodigoSerie = 01325546, Id = 1, Modelo = "Sony Vaio i456", Voltagem = 110 },
             new Notebooks.Notebook { Alugado = false, CodigoSerie = 032465, Id = 2, Modelo = "Positivo dual", Voltagem = 110 },
@@ -23,19 +23,32 @@ namespace PIM.ListadeEquipamentos
             new Projetores.Projetor { Id = 2, Modelo = "Sony light 12", CodigoSerie = 032465, Voltagem = 220, Alugado = false },
             new Projetores.Projetor { Id = 3, Modelo = "HP fullcinema", CodigoSerie = 2362198, Voltagem = 220, Alugado = false }
         };
-        public static int EstoqueNotebooks()
+        public int EstoqueNotebooksLiberados()
         {
             return EstoqueDeEquipamentos.OfType<Notebook>().Where(x => x.Alugado == false).Count();
         }
-        public static int EstoqueTablets()
+        public int EstoqueNotebooksAlugados()
+        {
+            return EstoqueDeEquipamentos.OfType<Notebook>().Where(x => x.Alugado == true).Count();
+        }
+        public int EstoqueTabletsLiberados()
         {
             return EstoqueDeEquipamentos.OfType<Tablet>().Where(x => x.Alugado == false).Count();
         }
-        public static int EstoqueProjetores()
+        public int EstoqueTabletsAlugados()
+        {
+            return EstoqueDeEquipamentos.OfType<Tablet>().Where(x => x.Alugado == true).Count();
+        }
+        public int EstoqueProjetoresLiberados()
         {
             return EstoqueDeEquipamentos.OfType<Projetor>().Where(x => x.Alugado == false).Count();
         }
-        public static int EstoqueTotal()
+        public int EstoqueProjetoresAlugados()
+        {
+            return EstoqueDeEquipamentos.OfType<Projetor>().Where(x => x.Alugado == true).Count();
+        }
+
+        public int EstoqueTotal()
         {
             return EstoqueDeEquipamentos.Count();
         }

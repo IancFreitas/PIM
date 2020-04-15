@@ -10,13 +10,11 @@ namespace PIM.Cadastros
 {
     public class Cadastro : Funcionario
     {
-        public bool TentativaAcesso()
+        public bool TentativaAcesso(int codigo)
         {
-            int x = CodigoFuncao;
-
-            if (x == 1)
+            if (codigo == 1)
             {
-                Console.WriteLine("Você possuí acesso para cadastro de Funcionário. Por favor, insira os dados do mesmo.");
+                Console.WriteLine("Você possuí acesso para cadastro de Funcionário.");
                 return true;
             }
             else
@@ -26,18 +24,50 @@ namespace PIM.Cadastros
             }
         }
 
-        public static bool Login(List<Funcionario> usuarios, string Usuario, string Senha) 
+        public bool Login(string Usuario, string Senha) 
         {
+            var usuarios = BasedeDadosFuncionarios.CorpoDocente;
             if (usuarios.Any(x => x.Usuario == Usuario && x.Senha == Senha))
             {
-                Console.WriteLine("Seja bem vindo!");
                 return true;
             }
             else
             {
-                Console.WriteLine("Desculpa, você não é funcionário! Entre em contato com os Administradores.");
                 return false;
             }
+        }
+
+        public bool Cadastrar(string usuario, string senha)
+        {
+            var usuarios = BasedeDadosFuncionarios.CorpoDocente;
+            if (usuarios.Any(x => x.Usuario != Usuario && x.Senha != Senha))
+            {
+                Funcionario cadastramento = new Funcionario();
+                usuarios.Add(cadastramento);
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Esse funcionário já existe");
+                return false;
+            }
+
+        }
+        public bool Retirar(string usuario)
+        {
+            var usuarios = BasedeDadosFuncionarios.CorpoDocente;
+            if (usuarios.Any(x => x.Usuario != Usuario))
+            {
+                Funcionario cadastramento = new Funcionario();
+                usuarios.Remove(cadastramento);
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Esse funcionário não existe");
+                return false;
+            }
+
         }
 
     }
